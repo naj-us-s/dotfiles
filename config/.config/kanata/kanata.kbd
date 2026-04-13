@@ -1,0 +1,107 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 del
+  `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt spc  ralt fn   rctl
+  home pgup pgdn left down up right
+)
+
+(defvar
+  tap-time 150
+  hold-time 180
+  hold-time-slow 300
+)
+
+(defalias
+  ;; caps lock: tap for esc, hold for hyper_nav layer
+  cap_esc (tap-hold $tap-time $hold-time esc (layer-while-held hyper_nav))
+
+  sym (tap-hold 150 180 spc (layer-while-held symbols))
+  num (tap-hold 150 180 z (layer-while-held numbers ))
+
+  hyper (multi lctl lalt lsft lmet)
+
+  ;; home row mods - using tap-hold-release for fast typing
+  a_mod (tap-hold-release $tap-time $hold-time a lmet)
+  s_mod (tap-hold-release $tap-time $hold-time s lalt)
+  d_mod (tap-hold-release $tap-time $hold-time d lsft)
+  f_mod (tap-hold-release $tap-time $hold-time f lctl)
+  j_mod (tap-hold-release $tap-time $hold-time j rctl)
+  k_mod (tap-hold-release $tap-time $hold-time k rsft)
+  l_mod (tap-hold-release $tap-time $hold-time l ralt)
+  ;_mod (tap-hold-release $tap-time $hold-time ; lmet)
+
+  ;; shift keys: tap for word movement, hold for shift
+  lsft_mod (chord base lsft)
+  rsft_mod (chord base rsft)
+
+  caps_off (chord caps_layer lsft)
+  caps_off2 (chord caps_layer rsft)
+)
+
+(defchords base 100
+  (lsft) (tap-hold $tap-time $hold-time left lsft)
+  (rsft) (tap-hold $tap-time $hold-time right rsft)
+  (lsft rsft) (layer-switch caps_layer)
+)
+
+(defchords caps_layer 100
+  (lsft) (tap-hold $tap-time $hold-time C-left lsft)
+  (rsft) (tap-hold $tap-time $hold-time C-right rsft)
+  (lsft rsft) (layer-switch base)
+)
+
+(deflayer base
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 del
+  `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cap_esc @a_mod @s_mod @d_mod @f_mod g h @j_mod @k_mod @l_mod @;_mod ' ret
+  @lsft_mod @num    x    c    v    b    n    m    ,    .    /    @rsft_mod
+  lctl lmet lalt @sym ralt fn rctl
+  @hyper pgup pgdn left down up right
+)
+
+(deflayer hyper_nav
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 del
+  `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  _    a    s    d    f    g    left down up right ;    '    ret
+  @lsft_mod z    x    c    v    b    n    m    ,    .    /    @rsft_mod
+  lctl lmet lalt spc ralt fn rctl
+  home pgup pgdn left down up right
+)
+
+(deflayer caps_layer
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 del
+  grv  S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  S-9  S-0  S--  S-=  bspc
+  tab  S-q  S-w  S-e  S-r  S-t  S-y  S-u  S-i  S-o  S-p  S-[  S-]  S-\
+  @cap_esc  S-a  S-s  S-d  S-f  S-g  S-h  S-j  S-k  S-l  S-;  S-'  ret
+  @caps_off S-z S-x S-c S-v S-b S-n S-m S-, S-. S-/ @caps_off2
+  lctl lmet lalt spc ralt fn rctl
+  home pgup pgdn left down up right
+)
+
+(deflayer symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  [    ]    _    _    _
+  _    _    _    _    _    _    S-[  S-]  =  S-=    _   _    _
+  _    S-,  S-.  S-/  -    _    S-9  S-0  S-\   _    _  _
+  _    _    _    _    _    _    _
+  _    _    _    _    _    _    _
+)
+(deflayer numbers
+  _    _    _    _    _    _    _  _  _    _    _    _    _    _
+  _    _    _    _    _    _    _  _  _    _    _    _    _    _
+  _    _    _    _    _    _    7  8  9  _    _    _    _    _
+  _    _    _    _    _    _    4  5  6  _   _   _    _
+  _    _    _    _    _    0    1  2  3  _  _   _
+  _    _    _    _    _    _    _
+  _    _    _    _    _    _    _
+)

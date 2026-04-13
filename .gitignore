@@ -1,0 +1,62 @@
+# Ignore editor/OS junk
+Thumbs.db
+*.swp
+*.swo
+
+# Ignore shell history
+.zsh_history
+.bash_history
+
+# Ignore caches
+.cache/
+*.log
+
+# Ignore tmux plugins (installed by TPM)
+.config/tmux/plugins/
+.tmux/plugins/
+
+# Ignore qutebrowser runtime data
+qutebrowser/.qutebrowser/bookmarks/
+qutebrowser/.qutebrowser/quickmarks
+qutebrowser/.qutebrowser/history
+
+# Ignore neovim backup/undo/swap dirs
+.config/nvim/backup/
+.config/nvim/swap/
+.config/nvim/undo/
+.config/nvim/lua/plugins/ai.lua
+
+# Ignore local machine-specific configs
+.local/
+
+# macOS system files (enhanced)
+**/.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Backup and copy directories
+*backup*
+*.bak
+*.backup
+
+# Plugin lock files
+.config/tmux/plugins/*/flake.lock
+.config/tmux/plugins/*/Cargo.lock
+
+# Environment files
+.env*
+*.env
+.config/tmux/plugins/tmux-fzf/scripts/.envs
+
+# Cache and temporary files
+.cache/
+*.cache
+*.tmp
+*.pid
+*.lock
+
+# Ignore sensitive configs
+.config/configstore/
+.config/gh/
