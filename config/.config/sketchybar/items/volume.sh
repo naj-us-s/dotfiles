@@ -5,7 +5,7 @@ volume_slider=(
   updates=on
   label.drawing=off
   icon.drawing=off
-  slider.highlight_color=$KANAGAWA_BRIGHT_BLUE
+  slider.highlight_color=$OXO_BRIGHT_BLUE
   slider.background.height=5
   slider.background.corner_radius=3
   slider.background.color=$BACKGROUND_2
@@ -20,7 +20,7 @@ volume_icon=(
   icon=$VOLUME_100
   icon.width=0
   icon.align=left
-  icon.color=$KANAGAWA_FG4
+  icon.color=$OXO_FG_COMMENT
   icon.font="$FONT:Regular:14.0"
   label.width=25
   label.align=left
@@ -42,6 +42,6 @@ sketchybar --add slider volume right            \
                                                 \
            --add item volume_icon right         \
            --set volume_icon "${volume_icon[@]}"
-
 sketchybar --add bracket status brew github.bell volume_icon \
            --set status "${status_bracket[@]}"
+

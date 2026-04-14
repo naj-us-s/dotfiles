@@ -59,12 +59,12 @@ toggle_battery_info() {
   if [[ $CHARGING == "charging" ]] || [[ $CHARGING == "AC Power" ]]; then
     args+=(--add item battery.info.status popup."$NAME" \
            --set battery.info.status label="Status: Charging" \
-                                    label.color="$GREEN" \
+                                    label.color="$MAGENTA" \
                                     label.font="size=11")
   else
     args+=(--add item battery.info.status popup."$NAME" \
            --set battery.info.status label="Status: Discharging" \
-                                    label.color="$YELLOW" \
+                                    label.color="$BLUE" \
                                     label.font="size=11")
   fi
   
@@ -73,12 +73,12 @@ toggle_battery_info() {
     if [[ $CHARGING == "charging" ]] || [[ $CHARGING == "AC Power" ]]; then
       args+=(--add item battery.info.time popup."$NAME" \
              --set battery.info.time label="Time to full: ${TIME_REMAINING}" \
-                                    label.color="$GREEN" \
+                                    label.color="$MAGENTA" \
                                     label.font="size=11")
     else
       args+=(--add item battery.info.time popup."$NAME" \
              --set battery.info.time label="Time remaining: ${TIME_REMAINING}" \
-                                    label.color="$YELLOW" \
+                                    label.color="$BLUE" \
                                     label.font="size=11")
     fi
   fi
