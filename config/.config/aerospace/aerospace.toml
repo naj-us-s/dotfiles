@@ -7,8 +7,8 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget sketchybar',
-    'exec-and-forget borders'
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders',
 ]
 
 # Start AeroSpace at login
@@ -22,7 +22,6 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
 accordion-padding = 0
-
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
 
@@ -43,9 +42,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 #sketchybar shows aerospace workspace
 exec-on-workspace-change = [
-    '/bin/bash',
-    '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -57,11 +56,11 @@ exec-on-workspace-change = [
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 10
-inner.vertical =   10
-outer.left =       10
-outer.bottom =     10
-outer.top =        60
-outer.right =      10
+inner.vertical = 10
+outer.left = 10
+outer.bottom = 10
+outer.top = 60
+outer.right = 10
 
 [workspace-to-monitor-force-assignment]
 u = 'main'
@@ -75,7 +74,6 @@ m = 'secondary'
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 [mode.main.binding]
-
 
 
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
@@ -121,11 +119,14 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # Enter service mode
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
-alt-shift-enter = 'mode app'
+alt-ctrl-shift-cmd-a = 'mode app'
 
 [mode.app.binding]
-alt-w= ['exec-and-forget open-a com.github.wez.wezterm', 'mode main']
-alt-z= ['exec-and-forget open-a app.zen-browser.zen']
+h = ['exec-and-forget open -a "HazeOver"', 'mode main']
+c = ['exec-and-forget open -a "CleanShot X"', 'mode main']
+d = ['exec-and-forget open -a "Dropover"', 'mode main']
+o = ['exec-and-forget open -a "Homerow"', 'mode main']
+esc = ['mode min']
 # 'service' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -198,6 +199,10 @@ run = "move-node-to-workspace m"
 
 [[on-window-detected]]
 if.app-id = "com.github.wez.wezterm"
+run = "move-node-to-workspace i"
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
 run = "move-node-to-workspace i"
 
 [[on-window-detected]]
