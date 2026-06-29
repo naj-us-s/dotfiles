@@ -57,10 +57,10 @@ exec-on-workspace-change = [
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
-outer.left = 10
-outer.bottom = 10
+outer.left = 20
+outer.bottom = 20
 outer.top = 60
-outer.right = 10
+outer.right = 20
 
 [workspace-to-monitor-force-assignment]
 u = 'main'
@@ -126,7 +126,11 @@ h = ['exec-and-forget open -a "HazeOver"', 'mode main']
 c = ['exec-and-forget open -a "CleanShot X"', 'mode main']
 d = ['exec-and-forget open -a "Dropover"', 'mode main']
 o = ['exec-and-forget open -a "Homerow"', 'mode main']
-esc = ['mode min']
+z = ['exec-and-forget open -a "Zen"', 'workspace u', 'mode main']
+p = ['exec-and-forget open -a "ZenNotes"', 'workspace o', 'mode main']
+g = ['exec-and-forget open -a "Ghostty"', 'workspace i', 'mode main']
+a = ['exec-and-forget open -a "Antigravity IDE"', 'workspace p', 'mode main']
+esc = ['mode main']
 # 'service' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -179,7 +183,7 @@ esc = [
 
 [[on-window-detected]]
 if.app-id = "dev.zed.Zed"
-run = "move-node-to-workspace n"
+run = ["move-node-to-workspace n", "workspace n"]
 
 [[on-window-detected]]
 if.app-id = "com.openai.chat"
@@ -196,10 +200,6 @@ run = "move-node-to-workspace p"
 [[on-window-detected]]
 if.app-id = "com.anthropic.claudefordesktop"
 run = "move-node-to-workspace m"
-
-[[on-window-detected]]
-if.app-id = "com.github.wez.wezterm"
-run = "move-node-to-workspace i"
 
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"

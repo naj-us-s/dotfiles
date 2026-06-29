@@ -27,7 +27,7 @@
 
   hyper (multi lctl lalt lsft lmet)
 
-  ;; home row mods 
+  ;; home row mods - using tap-hold-release for fast typing
   a_mod (tap-hold-release $tap-time $hold-time a lmet)
   s_mod (tap-hold-release $tap-time $hold-time s lalt)
   d_mod (tap-hold-release $tap-time $hold-time d lsft)
@@ -37,15 +37,18 @@
   l_mod (tap-hold-release $tap-time $hold-time l ralt)
   ;_mod (tap-hold-release $tap-time $hold-time ; lmet)
 
-  ;; remove a word on bspc
-  slsh (tap-hold-release $tap-time $hold-time A-bspc /)
-
-  ;; tap for movement; hold for shift
-  lsft_mod (tap-hold-release $tap-time $hold-time A-left lsft)
-  rsft_mod (tap-hold-release $tap-time $hold-time A-right rsft)
+  ;; shift keys: tap for word movement, hold for shift
+  lsft_mod (chord base lsft)
+  rsft_mod (chord base rsft)
 
   caps_off (chord caps_layer lsft)
   caps_off2 (chord caps_layer rsft)
+)
+
+(defchords base 100
+  (lsft) (tap-hold $tap-time $hold-time A-left lsft)
+  (rsft) (tap-hold $tap-time $hold-time A-right rsft)
+  (lsft rsft) (layer-switch caps_layer)
 )
 
 (defchords caps_layer 100
@@ -59,15 +62,15 @@
   `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cap_esc @a_mod @s_mod @d_mod @f_mod g h @j_mod @k_mod @l_mod @;_mod ' ret
-  @lsft_mod @num    x    c    v    b    n    m    ,    .   @slsh @rsft_mod
-  lctl lmet @hyper @sym ralt fn rctl
-  home pgup pgdn left down up right
+  @lsft_mod @num    x    c    v    b    n    m    ,    .    /    @rsft_mod
+  lctl lmet lalt @sym ralt fn @hyper
+  @hyper pgup pgdn left down up right
 )
 
 (deflayer hyper_nav
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 del
   `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  tab  q    w    e    r    t    y    pgdn home end pgup [    ]    \
   _    a    s    d    f    g    left down up right ;    '    ret
   @lsft_mod z    x    c    v    b    n    m    ,    .    /    @rsft_mod
   lctl lmet lalt spc ralt fn rctl
@@ -88,18 +91,17 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  [    ]    _    _    _
-  _    _    _    _    _    _    _    S-[  S-]  =  S-=    _   _    
-  _    S-,  S-.  S-/  -    S--    S-9  S-0  _  /    _  _
+  _    _    S-[  S-]  S--  bspc A-bspc S-[  S-]  =  S-=    _   _    
+  _    S-,  S-.  S-/  -   _    S-9  S-0  S-\   _    _  _
   _    _    _    _    _    _    _
   _    _    _    _    _    _    _
 )
-
 (deflayer numbers
-  _    _    _    _    _    _    _  _  _    _    _    _    _    _
-  _    _    _    _    _    _    _  _  _    _    _    _    _    _
-  _    _    _    _    _    _    7  8  9  _    _    _    _    _
-  _    _    _    _    _    _    4  5  6  _   _   _    _
-  _    _    _    _    _    0    1  2  3  _  _   _
+  _    _    _    _    _    _  _  _  _    _    _    _    _    _
+  _    _    _    _    _    _  _  _  _    _    _    _    _    _
+  _    _    _    _    _    _  _ 7  8  9  _    _    _    _    
+  _    _    _    _    _    _  _ 4  5  6  _   _   _    
+  _    _    _    _    _    _  0 1  2  3  _  _   
   _    _    _    _    _    _    _
   _    _    _    _    _    _    _
 )
