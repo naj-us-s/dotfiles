@@ -1,0 +1,40 @@
+[colors]
+foreground = "#f2f4f8"
+background = "#161616"
+
+cursor_bg = "#f2f4f8"
+cursor_fg = "#161616"
+cursor_border = "#f2f4f8"
+
+selection_fg = "#161616"
+selection_bg = "#78a9ff"
+
+scrollbar_thumb = "#262626"
+split = "#262626"
+
+ansi = [
+  "#262626",  # black
+  "#ee5396",  # red
+  "#33b1ff",  # accent
+  "#ff7eb6",  # yellow
+  "#78a9ff",  # blue
+  "#be95ff",  # magenta
+  "#3ddbd9",  # cyan
+  "#dde1e6",  # white
+]
+
+brights = [
+  "#393939",  # bright black
+  "#ff7eb6",  # bright red
+  "#08bdba",  # bright accent
+  "#d4bbff",  # bright yellow
+  "#82cfff",  # bright blue
+  "#d4bbff",  # bright magenta
+  "#82cfff",  # bright cyan
+  "#ffffff",  # bright white
+]
+
+[metadata]
+name = "oxocarbon"
+author = "Custom Oxocarbon"
+origin_url = "https://github.com/nyoom-engineering/oxocarbon.nvim"

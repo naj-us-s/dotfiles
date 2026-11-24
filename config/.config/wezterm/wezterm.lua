@@ -1,4 +1,4 @@
--- WezTerm configuration with Tokyo Night Storm theme
+-- WezTerm configuration with Nyoom Engineering theme
 local wezterm = require("wezterm")
 local constants = require("constants")
 local commands = require("commands")
@@ -6,14 +6,15 @@ local config = wezterm.config_builder()
 
 config.font_size = 19
 config.line_height = 1.2
-config.font = wezterm.font("DankMono Nerd Font")
+config.font = wezterm.font("BlexMono Nerd Font")
 
 config.color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors" }
-config.color_scheme = "Tokyo Night Storm"
+config.color_scheme = "oxocarbon"
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
+config.default_cursor_style = "Block"
 
 config.window_padding = {
 	left = 0,

@@ -20,6 +20,9 @@ alias ls="eza --icons=always"
 eval "$(zoxide init zsh)"
 
 alias cd="z"
+
+#postgres
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 #starship
 export STARSHIP_CONFIG="$HOME/dotfiles/.config/starship/starship.toml"
 eval "$(starship init zsh)"
@@ -30,7 +33,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # --yazi config
 export EDITOR="nvim"
-
 
 # Added by Antigravity
 export PATH="/Users/kagaseo/.antigravity/antigravity/bin:$PATH"
@@ -74,3 +76,19 @@ ani-status() {
 	done < "$hist"
 	(( found == 0 )) && print -- "  - none"
 }
+
+# Added by Antigravity IDE
+export PATH="/Users/kagaseo/.antigravity-ide/antigravity-ide/bin:$PATH"
+export PATH="/Users/kagaseo/.local/bin:$PATH"
+
+# .NET SDK 9 (repo global.json pins 9.0.306)
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$HOME/.dotnet:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/kagaseo/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/kagaseo/.lmstudio/bin"
+# End of LM Studio CLI section
+

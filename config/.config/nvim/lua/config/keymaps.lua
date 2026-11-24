@@ -1,23 +1,35 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-local keymap = vim.keymap -- for conciseness
+local map = vim.keymap.set
 
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+map("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
 
--- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
+map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
--- window management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+map("n", "<leader>sv", "<C-w>v", { desc = "Split vertically" })
+map("n", "<leader>sh", "<C-w>s", { desc = "Split horizontally" })
+map("n", "<leader>se", "<C-w>=", { desc = "Equal split sizes" })
+map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+map("n", "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/restore split" })
+
+map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
+map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
+map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
+map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
+map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open buffer in new tab" })
+
+map("v", "<", "<gv", { desc = "Indent left" })
+map("v", ">", ">gv", { desc = "Indent right" })
+
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+map({ "n", "x" }, "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
+map({ "n", "x" }, "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+map("i", "<C-_>", "<esc>gcci", { remap = true, desc = "Toggle comment" })
+map("i", "<C-/>", "<esc>gcci", { remap = true, desc = "Toggle comment" })

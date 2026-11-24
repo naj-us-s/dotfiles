@@ -1,40 +1,69 @@
-vim.cmd("let g:netrw_liststyle = 3")
-vim.opt.conceallevel = 2
-
 local opt = vim.opt
 
-opt.relativenumber = true
+opt.laststatus = 3 -- Ensure global statusline
 opt.number = true
+opt.relativenumber = true
 
--- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
 
-opt.wrap = false
-
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-
-opt.cursorline = true
-
--- turn on termguicolors for tokyonight colorscheme to work
--- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.signcolumn = "yes"
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.splitright = true
+opt.splitbelow = true
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard = "unnamedplus"
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+opt.updatetime = 250
+opt.timeoutlen = 300
 
--- turn off swapfile
-opt.swapfile = false
+-- Modern defaults
+opt.scrolloff = 8
+opt.cursorline = true
+opt.wrap = false
+opt.undofile = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
+
+-- Custom native Neovim tabline formatting
+function _G.MyTabLine()
+	local s = ""
+	for i = 1, vim.fn.tabpagenr("$") do
+		if i == vim.fn.tabpagenr() then
+			s = s .. "%#TabLineSel#"
+		else
+			s = s .. "%#TabLine#"
+		end
+
+		s = s .. "%" .. i .. "T"
+
+		local buflist = vim.fn.tabpagebuflist(i)
+		local winnr = vim.fn.tabpagewinnr(i)
+		local bufnr = buflist[winnr]
+		local bufname = vim.fn.bufname(bufnr)
+
+		local file = "[No Name]"
+		if bufname ~= "" then
+			file = vim.fn.fnamemodify(bufname, ":t")
+		end
+
+		local modified = vim.fn.getbufvar(bufnr, "&modified") == 1
+		local mod_char = modified and " ●" or ""
+
+		s = s .. " " .. i .. ": " .. file .. mod_char .. " "
+	end
+
+	s = s .. "%#TabLineFill#%T"
+	return s
+end
+
+vim.o.tabline = "%!v:lua.MyTabLine()"
+
+-- Folding
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
