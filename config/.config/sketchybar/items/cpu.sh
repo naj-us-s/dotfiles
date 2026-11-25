@@ -22,8 +22,8 @@ cpu_percent=(
 
 cpu_sys=(
   width=0
-  graph.color=$KANAGAWA_BRIGHT_RED
-  graph.fill_color=$KANAGAWA_BRIGHT_RED
+  graph.color=$OXO_BRIGHT_RED
+  graph.fill_color=$OXO_BRIGHT_RED
   label.drawing=off
   icon.drawing=off
   background.height=30
@@ -32,7 +32,7 @@ cpu_sys=(
 )
 
 cpu_user=(
-  graph.color=$KANAGAWA_BRIGHT_BLUE
+  graph.color=$OXO_BRIGHT_CYAN
   label.drawing=off
   icon.drawing=off
   background.height=30

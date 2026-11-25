@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "zennotes": {
+      "type": "local",
+      "command": [
+        "/Users/kagaseo/.local/bin/zn",
+        "mcp"
+      ],
+      "enabled": true
+    }
+  }
+}

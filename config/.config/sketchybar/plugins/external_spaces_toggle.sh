@@ -14,10 +14,10 @@ fi
 
 if [ "$current_state" = "off" ]; then
   new_state="on"
-  icon_color=${KANAGAWA_BRIGHT_BLUE:-0xff7E9CD8}
+  icon_color=${OXO_BRIGHT_PURPLE:-0xffbe95ff}
 else
   new_state="off"
-  icon_color=${KANAGAWA_FG4:-0xff717C7C}
+  icon_color=${OXO_FG_COMMENT:-0xff525252}
 fi
 
 echo "$new_state" > "$STATE_FILE"

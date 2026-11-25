@@ -1,0 +1,25 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json 
+[default_session]
+startup_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "tmuxconf"
+path = "~/dotfiles/config/.config/tmux"
+startup_command = "nvim tmux.conf"
+windows = ["aerospace", "nvimconf", "Kanata"]
+preview_command = "bat --color=always ~/dotfiles/config/.config/tmux/.tmux.conf"
+
+[[window]]
+name = "nvimconf"
+path = "~/dotfiles/config/.config/nvim"
+startup_script = "nvim tmux.conf"
+
+[[window]]
+name = "aerospace"
+path = "~/dotfiles/config/.config/aerospace"
+startup_script = "nvim aerospace.toml"
+
+[[window]]
+name = "Kanata"
+path = "~/dotfiles/config/.config/kanata"
+startup_script = "nvim kanata.toml"

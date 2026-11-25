@@ -6,7 +6,7 @@ aerospace=(
   label.drawing=off
   icon.width=30
   icon=$YABAI_GRID
-  icon.color=$KANAGAWA_BRIGHT_BLUE
+  icon.color=$OXO_BRIGHT_BLUE
   associated_display=active
 )
 
@@ -14,7 +14,7 @@ front_app=(
   script="$PLUGIN_DIR/front_app.sh"
   icon.drawing=off
   padding_left=0
-  label.color=$KANAGAWA_FG1
+  label.color=$OXO_FG
   label.font="$FONT:Black:16.0"
   associated_display=active
   update_freq=1

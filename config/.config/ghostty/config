@@ -1,0 +1,23 @@
+# Font Configuration
+font-family = "BlexMono Nerd Font"
+font-size = 19
+
+# Theme
+theme = "oxocarbon"
+
+# Window & Padding
+window-decoration = false
+window-padding-x = 0
+window-padding-y = 0
+
+# Transparency & Blur
+background-opacity = 0.8
+background-blur-radius = 40
+
+# Custom Cursor Trail Shader
+custom-shader = "/Users/kagaseo/dotfiles/config/.config/ghostty/cursor_trail.glsl"
+
+# Cursor Configuration
+cursor-style = block
+cursor-color = #33b1ff
+cursor-text = #161616

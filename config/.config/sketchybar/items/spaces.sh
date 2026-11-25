@@ -78,7 +78,7 @@ for workspace in $ALL_WORKSPACES_TO_CREATE; do
     padding_left=2
     padding_right=2
     label.padding_right=20
-    icon.highlight_color=$KANAGAWA_BRIGHT_RED
+    icon.highlight_color=$OXO_BRIGHT_RED
     label.font="sketchybar-app-font:Regular:16.0"
     label.background.height=26
     label.background.drawing=on
@@ -101,7 +101,7 @@ for workspace in $ALL_WORKSPACES_TO_CREATE; do
       separator_config=(
         icon="|"
         icon.font="$FONT:Regular:14.0"
-        icon.color=$KANAGAWA_FG4
+        icon.color=$OXO_FG_COMMENT
         padding_left=5
         padding_right=5
         label.drawing=off
@@ -128,7 +128,7 @@ separator=(
   label.drawing=off
   associated_display=active
   click_script='aerospace workspace --create && sketchybar --trigger aerospace_workspace_change'
-  icon.color=$KANAGAWA_FG1
+  icon.color=$OXO_FG
 )
 
 sketchybar --add bracket spaces '/space\..*/' \

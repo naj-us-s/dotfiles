@@ -12,7 +12,7 @@ Thumbs.db
 *.log
 
 # Ignore tmux plugins (installed by TPM)
-.config/tmux/plugins/
+**/.config/tmux/plugins/
 .tmux/plugins/
 
 # Ignore qutebrowser runtime data
@@ -21,10 +21,10 @@ qutebrowser/.qutebrowser/quickmarks
 qutebrowser/.qutebrowser/history
 
 # Ignore neovim backup/undo/swap dirs
-.config/nvim/backup/
-.config/nvim/swap/
-.config/nvim/undo/
-.config/nvim/lua/plugins/ai.lua
+**/.config/nvim/backup/
+**/.config/nvim/swap/
+**/.config/nvim/undo/
+**/.config/nvim/lua/plugins/ai.lua
 
 # Ignore local machine-specific configs
 .local/
@@ -42,13 +42,13 @@ qutebrowser/.qutebrowser/history
 *.backup
 
 # Plugin lock files
-.config/tmux/plugins/*/flake.lock
-.config/tmux/plugins/*/Cargo.lock
+**/.config/tmux/plugins/*/flake.lock
+**/.config/tmux/plugins/*/Cargo.lock
 
 # Environment files
 .env*
 *.env
-.config/tmux/plugins/tmux-fzf/scripts/.envs
+**/.config/tmux/plugins/tmux-fzf/scripts/.envs
 
 # Cache and temporary files
 .cache/
@@ -58,5 +58,19 @@ qutebrowser/.qutebrowser/history
 *.lock
 
 # Ignore sensitive configs
-.config/configstore/
-.config/gh/
+**/.config/configstore/
+**/.config/gh/
+
+# Sensitive API tokens and credentials
+**/.config/github-copilot/
+
+# Machine-specific settings with local user paths
+**/.config/spicetify/config-xpui.ini
+
+# Opencode build & dependency caches
+**/.config/opencode/node_modules/
+**/.config/opencode/bun.lock*
+**/.config/opencode/package-lock.json
+
+# Local editor logs
+**/.config/nvim/.nvimlog
